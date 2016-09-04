@@ -79,6 +79,11 @@ class MessageBar extends Component {
       duration: props.duration || 3000,
       showCloseButton: props.showCloseButton,
       closeButtonColor: props.closeButtonColor || "black",
+      closeButtonMarginTop: props.closeButtonMarginTop || 20,
+      closeButtonMarginBottom: props.closeButtonMarginBottom || 15,
+      closeButtonMarginLeft: props.closeButtonMarginLeft || 13,
+      closeButtonMarginRight: props.closeButtonMarginRight || 13,
+      closeButtonIconSize: props.closeButtonIconSize || 25,
 
       /* Hide setters */
       shouldHideAfterDelay: (props.shouldHideAfterDelay == undefined) ? true : props.shouldHideAfterDelay,
@@ -448,8 +453,8 @@ class MessageBar extends Component {
     if (this.state.showCloseButton != null && this.state.showCloseButton) {
       return (
         <TouchableOpacity onPress={()=>{this._alertCloseTapped()}}>
-          <View style={{marginTop: (Platform.OS == 'ios') ? 31 : 23, marginBottom:(Platform.OS == 'ios') ? 7 : 15, marginRight: 13, marginLeft: 13, alignSelf: 'stretch'}}>
-            <Icon allowFontScaling={false} name="clear" size={25} color={this.state.closeButtonColor} />
+          <View style={{marginTop: this.state.closeButtonMarginTop, marginBottom: this.state.closeButtonMarginBottom, marginRight: this.state.closeButtonMarginRight, marginLeft: this.state.closeButtonMarginLeft, alignSelf: 'stretch'}}>
+            <Icon allowFontScaling={false} name="clear" size={this.state.closeButtonIconSize} color={this.state.closeButtonColor} />
           </View>
         </TouchableOpacity>
       );
