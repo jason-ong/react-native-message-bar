@@ -436,6 +436,15 @@ class MessageBar extends Component {
   }
 
   renderMessage() {
+    if ( this.state.message != null && this.state.imgMessage != null )
+      return (
+        <View style={{flexDirection:'row', alignItems:'center'}}>
+          <Icon allowFontScaling={false} name="mic" size={15} color='#277d9f' style={{}} />
+          <Text numberOfLines={this.state.messageNumberOfLines} style={this.state.messageStyle}>
+            { this.state.message }
+          </Text>
+        </View>
+      );
     if (this.state.message != null) {
       return (
         <Text numberOfLines={this.state.messageNumberOfLines} style={this.state.messageStyle}>
